@@ -1,0 +1,36 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowIAM",
+            "Effect": "Allow",
+            "Action": [
+                "iam:Generate*",
+                "iam:Get*",
+                "iam:List*",
+                "iam:Simulate*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowRolesFromServices",
+            "Effect": "Allow",
+            "Action": [
+                "iam:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "aws:CalledVia": [
+                        "amplify.amazonaws.com",
+                        "amplifybackend.amazonaws.com",
+                        "cloudformation.amazonaws.com",
+                        "lambda.amazonaws.com",
+                        "rds.amazonaws.com",
+                        "cognito-idp.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBucketList",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*"
+            ]
+        },
+        {
+            "Sid": "AllowTerraformLocalPlan",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListObjects",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*-terraform*/*"
+            ]
+        },
+        {
+            "Sid": "DenyTerraformApply",
+            "Effect": "Deny",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*-terraform*/*"
+            ]
+        },
+        {
+            "Sid": "AllowTerraformDBStateLock",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:DeleteItem"
+            ],
+            "Resource": "arn:aws:dynamodb:*:*:table/*-terraform*"
+        }
+    ]
+}

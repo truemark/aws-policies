@@ -1,0 +1,71 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBillingRead",
+            "Effect": "Allow",
+            "Action": [
+                "aws-portal:ViewAccount",
+                "aws-portal:ViewBilling",
+                "aws-portal:ViewUsage",
+                "cur:Describe*",
+                "ce:List*",
+                "ce:Describe*",
+                "ce:Get*",
+                "quicksight:*",
+                "billingconductor:List*",
+                "organizations:ListAccounts",
+                "pricing:DescribeServices",
+                "health:Describe*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowAthenaQueries",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "athena:*",
+                "glue:*",
+                "sns:List*",
+                "sns:GetTopicAttributes",
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:DeleteAlarms",
+                "lakeformation:GetDataAccess"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "InputS3forAthena",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*-athena-cur/*",
+                "arn:aws:s3:::*-athena-cur"
+            ]
+        },
+        {
+            "Sid": "OutputS3forAthena",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:AbortMultipartUpload",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::aws-athena-query-results-*",
+                "arn:aws:s3:::aws-athena-query-results-*/*"
+            ]
+        }
+
+    ]
+}

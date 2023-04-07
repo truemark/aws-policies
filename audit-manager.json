@@ -1,0 +1,35 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBillingModified",
+            "Effect": "Allow",
+            "Action": [
+                "auditmanager:GetAccountStatus",
+                "auditmanager:GetAssessment",
+                "auditmanager:GetAssessmentFramework",
+                "auditmanager:GetAssessmentReportUrl",
+                "auditmanager:GetChangeLogs",
+                "auditmanager:GetControl",
+                "auditmanager:GetDelegations",
+                "auditmanager:GetEvidence",
+                "auditmanager:GetEvidenceByEvidenceFolder",
+                "auditmanager:GetEvidenceFolder",
+                "auditmanager:GetEvidenceFoldersByAssessment",
+                "auditmanager:GetEvidenceFoldersByAssessmentControl",
+                "auditmanager:GetOrganizationAdminAccount",
+                "auditmanager:GetServicesInScope",
+                "auditmanager:GetSettings",
+                "auditmanager:ListAssessmentFrameworks",
+                "auditmanager:ListAssessmentReports",
+                "auditmanager:ListAssessments",
+                "auditmanager:ListControls",
+                "auditmanager:ListKeywordsForDataSource",
+                "auditmanager:ListNotifications",
+                "auditmanager:ListTagsForResource",
+                "auditmanager:ValidateAssessmentReportIntegrity"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

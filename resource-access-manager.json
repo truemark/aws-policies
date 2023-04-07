@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowRAM",
+            "Effect": "Allow",
+            "Action": [
+                "ram:*"
+            ],
+            "Resource": [
+                "arn:aws:ram::*:permission/*",
+                "arn:aws:ram:*:*:resource-share-invitation/*",
+                "arn:aws:ram:*:*:resource-share/*"
+            ]
+        }
+    ]
+}

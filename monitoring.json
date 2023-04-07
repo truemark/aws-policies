@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowCloudWatch",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:Describe*",
+                "cloudwatch:Get*",
+                "cloudwatch:List*",
+                "logs:Describe*",
+                "logs:Get*",
+                "logs:List*",
+                "logs:StartQuery",
+                "logs:StopQuery",
+                "logs:TestMetricFilter",
+                "logs:FilterLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowSQS",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:Get*",
+                "sqs:List*",
+                "sns:List*",
+                "sns:Get*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowSynthetics",
+            "Effect": "Allow",
+            "Action": [
+                "synthetics:Describe*",
+                "synthetics:List*",
+                "synthetics:Get*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
